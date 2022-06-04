@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(238, 226, 226);
+
+}
+.absolue{
+    position: absolute;
+
+}
+.image{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.upper{
+    text-transform: uppercase;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+.family{
+    font-family: 'Times New Roman', Times, serif;
+}
+@media  (max-width:'300px') {
+    .phones{
+        background-color: hotpink;
+    }
+}

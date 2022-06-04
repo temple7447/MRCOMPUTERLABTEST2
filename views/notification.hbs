@@ -1,0 +1,46 @@
+{{> menu}}
+
+<section class="interface w-100  h-100 " style="margin-left: 300px; position:relative">
+    {{> navigation}}
+
+
+
+
+<h1 class="px-2" style="font-weight: 700;margin-top:10%">NOTIFICATION</h1>
+{{!-- list of assignment --}}
+
+ <section class="container">
+        <div >
+            <form class="form form-control my-4"  action="/admin/notification" method="POST">
+            
+                <div>
+                    <label for="name">ASSIGNMENT MESSAGE</label>
+                    <textarea type="text" class="form-control"  placeholder="enter your message" name="message"></textarea>
+                </div>
+               
+                <div>
+                    <label for="mat">PROGRAM</label>
+                    <select class="form-control morneven" name="morneven" id="cars">
+                        <option value="MORNING">MORNING</option>
+                        <option value="EVENING">EVENING</option>
+                      </select>
+                </div>
+                <div>
+                    <label for="mat">LEVEL</label>
+                    <select class="form-control level" name="level" id="level">
+                        <option value="HND2">HND2</option>
+                        <option value="HND1">HND1</option>
+                        <option value="ND2">ND2</option>
+                        <option value="ND1">ND1</option>
+                      </select>
+                </div>
+                <button type="submit" class="form-control btn-primary btn btns">Click To Submit</button>
+            </form>
+        </div>
+    </section>
+
+    
+    
+
+
+</section> 

@@ -1,0 +1,15 @@
+ const User = new MorningModel({
+            fullname:fullname,
+            matriculation:matriculation,
+            morneven:morneven,
+            level:level
+          })
+
+  User.save().then((created)=>{
+            console.log('it has be created')
+          }).then((red)=>{
+            res.send('what you enter was successful')
+          })
+          .catch((err)=>{
+            console.log(err)
+          })
