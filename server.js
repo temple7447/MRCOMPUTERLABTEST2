@@ -35,7 +35,7 @@ app.use(cors())
 
 
 // static file
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'dist')))
 
 // bodyparser middleware
 // app.use(bodyparser.urlencoded({ extended:true }))
