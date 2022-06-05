@@ -24,11 +24,24 @@
     {{!-- HOME PAGE IMAGE --}}
         <section class="container">
         <div >
-            <form class="form form-control my-4" action="/admin/homepageimage" method="POST">
+            <form class="form form-control my-4" enctype="multipart/form-data" action="/admin/homepageimage" method="POST">
             
                 <div>
                     <label for="name">HOME PAGE IMAGE</label>
-                    <input type="file" class="form-control" name="homepagemessage"  placeholder="Enter your file name" id="fullname">
+                    <input type="file" class="form-control" name="homepageimage"  placeholder="Enter your file name" id="fullname">
+                </div>
+                <button type="submit" class="form-control btn-primary btn btns">Click To Submit</button>
+            </form>
+        </div>
+    </section>
+    {{!-- MATRICULATION NUMBER --}}
+        <section class="container">
+        <div >
+            <form class="form form-control my-4" action="/admin/matriculation" method="POST">
+            
+                <div>
+                    <label for="name">MATRICULATION</label>
+                    <input type="text" class="form-control" name="matriculation"  placeholder="Enter your file name" id="fullname">
                 </div>
                 <button type="submit" class="form-control btn-primary btn btns">Click To Submit</button>
             </form>

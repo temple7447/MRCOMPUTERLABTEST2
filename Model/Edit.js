@@ -5,6 +5,13 @@ const Edit = new Schema({
     homepagemessage:{
        type:String,
         required:true
+    },
+    imagename: String,
+    imagedesc: String,
+    img:
+    {
+        data: Buffer,
+        contentType: String
     }
     
 })

@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const multer = require("multer");
 const upload = multer({ dest: 'uploads/' })
 const connection = require('../config/sql')
+const fs = require("fs");
 const MatriculationMorning = require('../Model/MatriculationModelMorning')
 const MatriculationEvening = require('../Model/MatriculationModelEvening')
 const MorningHnd2Model = require('../Model/MorningHnd2Model')

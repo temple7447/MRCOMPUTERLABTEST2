@@ -8,9 +8,12 @@ const MainRouter = require('./Router/main')
 const AdminRouter = require('./Router/Admit')
 const hbs = require('express-handlebars').engine
 const handlebars = require('handlebars')
+const fileUpload = require('express-fileupload');
 const mongoose = require('mongoose')
 const cors = require('cors')
+const morgan = require('morgan');
 const path = require('path')
+const fs = require("fs");
 const connectDB = require('./config/db')
 const mysql = require('mysql')
 const connection = require('./config/sql')
@@ -27,6 +30,8 @@ connection.connect((err)=>{
     })
   })
 
+
+
 const bodyParser = require("body-parser")
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -36,9 +41,17 @@ connectDB()
 // cor middleware
 app.use(cors())
 
+// morgan
+app.use(morgan('dev'));
+
 
 // static file
 app.use(express.static(path.join(__dirname, 'dist')))
+
+// file upload
+app.use(fileUpload({
+    createParentPath: true
+}));
 
 // bodyparser middleware
 // app.use(bodyparser.urlencoded({ extended:true }))
