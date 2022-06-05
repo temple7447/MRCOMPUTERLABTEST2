@@ -6,7 +6,7 @@ const MONGODBE = process.env.MONGODBE
 const connectDB = async ()=>{
     try {
         
-       const conn = await mongoose.connect(ONLINEMONGODB,{
+       const conn = await mongoose.connect(MONGODB,{
             useUnifiedTopology:true,
             useNewUrlParser:true,
 

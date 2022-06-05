@@ -4,11 +4,11 @@ const mongoose = require("mongoose");
 const Notification = require('../Model/Notification')
 
 
-router.get('/notification',(req,res)=>{
+router.get('/edit',(req,res)=>{
     
-    res.render('notification',{layout:'notification'})
+    res.render('edit',{layout:'edit',content:"EDIT PAGE"})
 })
-router.post('/notification',(req,res)=>{
+router.post('/homepagemessage',(req,res)=>{
     const {message,morneven,level} = req.body
     const User = new Notification({
         message:message,

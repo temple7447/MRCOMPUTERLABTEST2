@@ -11,3 +11,18 @@
     </div>
 </div>
 </section>
+
+<section>
+    {{#each list}}
+    <div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{this.level}}</h5>
+        <p class="card-text">{{this.message}}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+{{/each}}
+</section>

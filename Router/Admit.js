@@ -3,17 +3,24 @@ const router = express.Router()
 const mongoose = require("mongoose");
 const MorningHnd2Model = require('../Model/MorningHnd2Model');
 
-MorningHnd2Model.find({}).then((resp)=>{
-    router.get('/',(req,res)=>{
-    
-        res.render('Admin',{layout:'Admin',res:res})
-       
-    })
-})
-.catch((err)=>{
-    console.log(err)
-})
 
+    
+
+
+    router.get('/',(req,res)=>{
+MorningHnd2Model.find({},(err,inform)=>{
+
+    if(err){
+        console.log(err)
+        res.status(500).send("it's a server err" + err)
+    }else{
+        res.status(200).render('Admin',{layout:'Admin',list:inform,content:"DASHBOARD"})
+        
+
+    }
+
+})
+})
 
 
 // morning router

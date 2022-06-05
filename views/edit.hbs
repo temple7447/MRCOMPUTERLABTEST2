@@ -1,0 +1,27 @@
+{{> menu}}
+
+<section class="interface w-100  h-100 " style="margin-left: 300px; position:relative">
+    {{> navigation}}
+
+
+
+
+<h1 class="px-2" style="font-weight: 700;margin-top:10%">{{content}}</h1>
+
+    {{!-- EDIT THE HOME PAGE WRITE UP --}}
+        <section class="container">
+        <div >
+            <form class="form form-control my-4"  enctype="multipart/form-data" action="/edit" method="POST">
+            
+                <div>
+                    <label for="name">HOME PAGE MESSAGE</label>
+                    <input type="text" class="form-control" name="homepagemessage"  placeholder="Enter your file name" id="fullname">
+                </div>
+                <button type="submit" class="form-control btn-primary btn btns">Click To Submit</button>
+            </form>
+        </div>
+    </section>
+
+
+
+</section>

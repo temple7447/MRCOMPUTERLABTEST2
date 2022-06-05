@@ -7,6 +7,7 @@ const StudentRouter = require('./Router/Student')
 const MainRouter = require('./Router/main')
 const AdminRouter = require('./Router/Admit')
 const hbs = require('express-handlebars').engine
+const handlebars = require('handlebars')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const path = require('path')
@@ -15,6 +16,8 @@ const mysql = require('mysql')
 const connection = require('./config/sql')
 const searchRouter = require('./Router/search')
 const NotificationRouter = require('./Router/notification');
+const EditRouter = require('./Router/edit')
+const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
 
 
 connection.connect((err)=>{
@@ -43,7 +46,10 @@ app.use(express.static(path.join(__dirname, 'dist')))
 app.use(express.json())
 
 // express handlebars middleware
-app.engine('.hbs', hbs({layoutsDir: `${__dirname}/views/layouts`, extname:'.hbs'}))
+app.engine('.hbs', hbs({
+    layoutsDir: `${__dirname}/views/layouts`,
+     extname:'.hbs',
+     handlebars: allowInsecurePrototypeAccess(handlebars)}))
 app.set('view engine', '.hbs')
 
 // extenal routers
@@ -52,6 +58,7 @@ app.use('/',MainRouter)
 app.use('/Admin',AdminRouter)
 app.use('/Admin',searchRouter)
 app.use('/Admin',NotificationRouter)
+app.use('/Admin',EditRouter)
 
 
 
