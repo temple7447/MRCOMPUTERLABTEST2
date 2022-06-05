@@ -3,7 +3,9 @@
     <section class=" mt-1 px-0 px-sm-1">
         <img class="image" src="./download.jfif" width="100%" height="400px" alt="showcasepage">
         <div class="w-100 h-100 family" style="position: absolute ;top:30%;text-align:center">
-        <div style="font-size:40px ;font-weight:700;" class="text-light"><span>WELCOME T</span><span class="text-black">O POLYTECHNIC</span></div>
+        {{#each editlist}}
+        <div style="font-size:40px ;font-weight:700;" class="text-light">{{this.homepagemessage}}</div>
+        {{/each}}
         <div style="font-size:25px" class="family d-none d-sm-block  text-white">there are many variation of passages of learen ipsum available, but the majority have sufered<span>alteration in some form</span></div>
         <div class="mt-5">
         <a href="/assignment" ><button class="upper " type="submit">Submit of Assignment</button></a>

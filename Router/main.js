@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const mongoose = require("mongoose");
 const Notification = require('../Model/Notification')
+const Edit = require('../Model/Edit')
 
 
 router.get('/',(req,res)=>{
@@ -11,7 +12,19 @@ router.get('/',(req,res)=>{
             console.log(err)
             res.status(500).send("it's a server err" + err)
         }else{
-            res.render('index',{layout:'index',list:inform})
+            Edit.find({},(err,informs)=>{
+
+                if(err){
+                    console.log(err)
+                    res.status(500).send("it's a server err" + err)
+                }else{
+                    res.render('index',{layout:'index',list:inform,editlist:informs})
+                    
+            
+                }
+            
+            })
+            
             
     
         }

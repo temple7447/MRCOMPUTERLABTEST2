@@ -5,8 +5,20 @@ const Notification = require('../Model/Notification')
 
 
 router.get('/notification',(req,res)=>{
+  Notification.find({},(err,inform)=>{
+
+    if(err){
+        console.log(err)
+        res.status(500).send("it's a server err" + err)
+    }else{
+      res.render('notification',{layout:'notification',content:'NOTIFICATION',list:inform})
+        
+
+    }
+
+})
     
-    res.render('notification',{layout:'notification'})
+   
 })
 router.post('/notification',(req,res)=>{
     const {message,morneven,level} = req.body
