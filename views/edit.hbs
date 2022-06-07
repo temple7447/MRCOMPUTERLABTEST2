@@ -11,7 +11,7 @@
     {{!-- EDIT THE HOME PAGE WRITE UP --}}
         <section class="container">
         <div >
-            <form class="form form-control my-4" action="/admin/homepagemessage" method="POST">
+            <form class="form form-control my-2" action="/admin/homepagemessage" method="POST">
             
                 <div>
                     <label for="name">HOME PAGE MESSAGE</label>
@@ -19,6 +19,9 @@
                 </div>
                 <button type="submit" class="form-control btn-primary btn btns">Click To Submit</button>
             </form>
+            <form class="form form-control my-2 " action="/admin/homepagemessagedelete" method="POST">
+             <button type="submit" class="form-control my- btn-primary btn btns">Delete</button>
+             </form>
         </div>
     </section>
     {{!-- HOME PAGE IMAGE --}}
@@ -41,7 +44,7 @@
             
                 <div>
                     <label for="name">MATRICULATION</label>
-                    <input type="text" class="form-control" name="matriculation"  placeholder="Enter your file name" id="fullname">
+                    <input type="text" class="form-control" name="matriculation1"  placeholder="Enter your file name" id="fullname">
                 </div>
                 <button type="submit" class="form-control btn-primary btn btns">Click To Submit</button>
             </form>
