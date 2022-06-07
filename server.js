@@ -8,7 +8,7 @@ const MainRouter = require('./Router/main')
 const AdminRouter = require('./Router/Admit')
 const hbs = require('express-handlebars').engine
 const handlebars = require('handlebars')
-const fileUpload = require('express-fileupload');
+// const fileUpload = require('express-fileupload');
 const mongoose = require('mongoose')
 const cors = require('cors')
 const morgan = require('morgan');
@@ -49,9 +49,9 @@ app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, 'dist')))
 
 // file upload
-app.use(fileUpload({
-    createParentPath: true
-}));
+// app.use(fileUpload({
+//     createParentPath: true
+// }));
 
 // bodyparser middleware
 // app.use(bodyparser.urlencoded({ extended:true }))
