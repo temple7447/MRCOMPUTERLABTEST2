@@ -1,9 +1,10 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
-const Edit = new Schema({
+const EditImage = new Schema({
     name: String,
     desc: String,
+    size:String,
     img:
     {
         data: Buffer,
@@ -12,4 +13,4 @@ const Edit = new Schema({
     
 })
 
-module.exports  = mongoose.model("Edit",Edit )
+module.exports  = mongoose.model("EditImage",EditImage )

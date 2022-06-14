@@ -1,8 +1,12 @@
             <tr>
                 <td>{{this.fullname}}</td>
                 <td>{{this.matriculation}}</td>
-                <td></td>
-                <td></td>
-                <td href="/delete">delete</td>
+                <td>{{this.name}}</td>
+               <td>
+                   <form action="/admin/delete" method="POST">
+                   <button name="matriculation" value={{this.matriculation}}  type="submit">delete</button>
+                   </form>
+                   
+                   </td>
             </tr>
 

@@ -8,19 +8,25 @@ const MainRouter = require('./Router/main')
 const AdminRouter = require('./Router/Admit')
 const hbs = require('express-handlebars').engine
 const handlebars = require('handlebars')
-// const fileUpload = require('express-fileupload');
+const fileUpload = require('express-fileupload');
 const mongoose = require('mongoose')
 const cors = require('cors')
 const morgan = require('morgan');
 const path = require('path')
 const fs = require("fs");
 const connectDB = require('./config/db')
+const passport = require('passport')
 const mysql = require('mysql')
 const connection = require('./config/sql')
 const searchRouter = require('./Router/search')
 const NotificationRouter = require('./Router/notification');
 const EditRouter = require('./Router/edit')
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
+const ClassRouter = require('./Router/Class')
+// const flash = require('connect-flash')
+// const session = require('express-session')
+const UserInfoRouter = require('./Router/userinfo')
+// const Passport = require('./config/LocalPassport')
 
 
 connection.connect((err)=>{
@@ -29,6 +35,25 @@ connection.connect((err)=>{
         console.log('database was created')
     })
   })
+
+//   app.use(passport.initialize());
+// app.use(passport.session())
+
+// Passport(passport)
+
+// app.use(flash());
+
+// app.use((req,res, next)=>{
+//     res.locals.success_msg = req.flash('success_msg')
+//     res.locals.error_msg = req.flash('error_msg')
+//     next()
+// })
+
+//   app.use(session({
+//     secret:'temple',
+//     resave:true,
+//     saveUninitialized:true,
+// }));
 
 
 
@@ -46,17 +71,21 @@ app.use(morgan('dev'));
 
 
 // static file
-app.use(express.static(path.join(__dirname, 'dist')))
 
+app.use(express.static(path.join(__dirname, 'dist')))
+app.use(express.static(path.join(__dirname, 'upload')))
+app.use(express.static(path.join(__dirname, 'files')))
 // file upload
-// app.use(fileUpload({
-//     createParentPath: true
-// }));
+app.use(fileUpload({
+    createParentPath: true
+}));
 
 // bodyparser middleware
 // app.use(bodyparser.urlencoded({ extended:true }))
 // express middleware
 app.use(express.json())
+
+
 
 // express handlebars middleware
 app.engine('.hbs', hbs({
@@ -72,6 +101,10 @@ app.use('/Admin',AdminRouter)
 app.use('/Admin',searchRouter)
 app.use('/Admin',NotificationRouter)
 app.use('/Admin',EditRouter)
+app.use('/Admin',ClassRouter)
+app.use('/Admin',UserInfoRouter)
+
+
 
 
 

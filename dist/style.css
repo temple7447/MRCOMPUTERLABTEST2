@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+button{
+    border: none;
+}
 body{
     width: 100vw;
     height: 100vh;

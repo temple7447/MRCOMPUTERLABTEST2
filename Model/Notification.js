@@ -13,6 +13,10 @@ const Notification = new Schema({
     level:{
        type:String,
         required:true
+    },
+    time:{
+        type:Date,
+        default:Date.now
     }
     
 })

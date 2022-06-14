@@ -1,6 +1,7 @@
  <section class="container">
         <div>
-            <form class="form form-control my-4"  action="/student" method="POST">
+            <div>{{message}}</div>
+            <form class="form form-control my-4" enctype="multipart/form-data"  action="/student" method="POST">
             
                 <div>
                     <label for="name">NAME OF STUDENT</label>
@@ -28,10 +29,14 @@
                 </div>
                 <div class="my-2">
                     <label for="file">FILE</label>
-                    <input type="file" class="form-control file" name="file"   id="file">
+                    <input type="file" class="form-control file" name="avater"   id="file">
                 </div>
                 <button type="submit" class="form-control btn-primary btn btns">Click To Submit</button>
             </form>
+
+
+
+   
 
            
 

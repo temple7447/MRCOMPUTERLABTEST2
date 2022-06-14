@@ -18,8 +18,16 @@ const MorningHnd2Model = new Schema({
     level:{
        type:String,
         required:true
+    },
+    name: String,
+    desc: String,
+    size:String,
+    files:
+    {
+        data: Buffer,
+        contentType: String
     }
     
 })
 
-module.exports  = mongoose.model("MorningHnd2",MorningHnd2Model )
+module.exports  = mongoose.model("General",MorningHnd2Model )

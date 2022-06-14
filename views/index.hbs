@@ -1,7 +1,10 @@
 
     <!-- show case -->
+    
     <section class=" mt-1 px-0 px-sm-1">
-        <img class="image" src="./download.jfif" width="100%" height="400px" alt="showcasepage">
+      {{#each photo}}
+  <img src="../{{this.name}}" width="100%" height="400px" alt="showcasepage">
+{{/each}}
         <div class="w-100 h-100 family" style="position: absolute ;top:30%;text-align:center">
         {{#each editlist}}
         <div style="font-size:40px ;font-weight:700;" class="text-light">{{this.homepagemessage}}</div>
@@ -14,17 +17,40 @@
 </div>
 </section>
 
-<section>
+    <section class="container">
     {{#each list}}
-    <div class="row">
-  <div class="col-sm-6">
+    <div class="row py-3 w-100">
+  <div class="col">
     <div class="card">
       <div class="card-body">
+        <h5 class="card-title">{{this.morneven}}</h5>
+        <div>
         <h5 class="card-title">{{this.level}}</h5>
+        <h5 class="card-title">{{this.time}}</h5>
+        </div>
         <p class="card-text">{{this.message}}</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <a href="#" class="btn btn-primary mx-2">Go somewhere</a>
+         
+          
       </div>
     </div>
   </div>
 {{/each}}
 </section>
+
+{{!-- <section class="container">
+  {{#each photo}}
+  <img src="../{{this.name}}" alt="ok you are welcome">
+{{/each}}
+</section> --}}
+
+
+
+{{!-- <embed download href="#" src="../add.pdf" width="500" height="375"> --}}
+{{!-- <iframe src="../add.pdf" width="500" height="375">you are welcome </iframe> --}}
+
+
+
+
+
+  

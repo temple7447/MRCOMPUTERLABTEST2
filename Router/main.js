@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 
 const Notification = require('../Model/Notification')
 const Edit = require('../Model/Edit')
+const EditImage = require('../Model/Image')
 
 
 router.get('/',(req,res)=>{
@@ -19,7 +20,15 @@ router.get('/',(req,res)=>{
                     console.log(err)
                     res.status(500).send("it's a server err" + err)
                 }else{
-                    res.render('index',{layout:'index',list:inform,editlist:informs})
+                    EditImage.find({},(err,photo)=>{
+                        if(err){
+                            console.log(err)
+                            res.status(500).send("it's a server err" + err) 
+                        }else{
+                            res.render('index',{layout:'index',list:inform,editlist:informs,photo:photo})
+
+                        }
+                    })
                     
             
                 }
@@ -35,7 +44,7 @@ router.get('/',(req,res)=>{
 })
 router.get('/assignment',(req,res)=>{
     
-    res.render('assignment',{layout:'submit'})
+    res.render('assignment',{layout:'submit',message:"successful and ok"})
 })
 router.get('/contact',(req,res)=>{
     

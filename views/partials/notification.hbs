@@ -1,0 +1,24 @@
+    <section class="container">
+    {{#each list}}
+    <div class="row py-3 w-100">
+  <div class="col">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{this.morneven}}</h5>
+        <div>
+        <h5 class="card-title">{{this.level}}</h5>
+        <h5 class="card-title">{{this.time}}</h5>
+        </div>
+        <p class="card-text">{{this.message}}</p>
+        <div class="d-flex">
+        <a href="#" class="btn btn-primary mx-2">Go somewhere</a>
+          <form action="/admin/notificationdelete" method="POST">
+           <button class="btn btn-secondary" name="id" value={{this._id}}  type="submit">delete</button>
+          </form>
+          </div>
+          
+      </div>
+    </div>
+  </div>
+{{/each}}
+</section>

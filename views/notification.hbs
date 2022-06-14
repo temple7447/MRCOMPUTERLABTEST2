@@ -34,26 +34,21 @@
                         <option value="ND1">ND1</option>
                       </select>
                 </div>
+
+                <div>
+                 <label for="date">TIME OF SUBMITION</label>
+                 <input type="date" name="time" class="form-control ">
+                </div>
                 <button type="submit" class="form-control btn-primary btn btns">Click To Submit</button>
             </form>
         </div>
     </section>
 
-    <section class="container">
-    {{#each list}}
-    <div class="row">
-  <div class="col">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">{{this.morneven}}</h5>
-        <h5 class="card-title">{{this.level}}</h5>
-        <p class="card-text">{{this.message}}</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-{{/each}}
-</section>
+    
+                  
+                   
+
+{{> notification}}
 
     
     

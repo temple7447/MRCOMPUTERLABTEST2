@@ -21,21 +21,35 @@ router.get('/notification',(req,res)=>{
    
 })
 router.post('/notification',(req,res)=>{
-    const {message,morneven,level} = req.body
+    const {message,morneven,level,time} = req.body
+    
     const User = new Notification({
         message:message,
         morneven:morneven,
-        level:level
+        level:level,
+        time:time
+        
       })
       User.save().then((created)=>{
         console.log('it has be created for notification')
-        res.send("success")
+        res.redirect('/admin/notification')
       })
       .catch((err)=>{
         console.log(err)
+        
       })
     
     
+})
+
+
+router.post('/notificationdelete',(req,res)=>{
+ const {id} = req.body;
+ Notification.deleteOne({_id:id}).then(()=>{
+   res.redirect('/admin/notification')
+ }).catch((err)=>{
+   console.log(err)
+ })
 })
 
 
