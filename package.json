@@ -26,9 +26,9 @@
   },
   "scripts": {
     "start": "node index.js",
-    "build": "nodemon server.js"
+    
   },
-  "name": "server_side",
+  "name": "index_side",
   "version": "1.0.0",
   "main": "server.js",
   "keywords": [],
