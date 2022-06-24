@@ -44,7 +44,7 @@ router.get('/',(req,res)=>{
 })
 router.get('/assignment',(req,res)=>{
     
-    res.render('assignment',{layout:'submit',message:"successful and ok"})
+    res.render('assignment',{layout:'register.hbs',message:"successful and ok"})
 })
 router.get('/contact',(req,res)=>{
     

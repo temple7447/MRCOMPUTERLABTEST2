@@ -51,6 +51,16 @@ router.post('/notificationdelete',(req,res)=>{
    console.log(err)
  })
 })
+router.post('/notificationedit',(req,res)=>{
+ const {id} = req.body;
+ Notification.findOneAndUpdate({_id:id}).then((userinfo)=>{
+const {message} = 
+console.log(message)
+   res.redirect('/admin/notification')
+ }).catch((err)=>{
+   console.log(err)
+ })
+})
 
 
 module.exports = router

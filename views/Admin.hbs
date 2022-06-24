@@ -64,7 +64,11 @@
                 <td>{{this.matriculation}}</td>
                 <td>{{this.level}}</td>
                 <td>{{this.morneven}}</td>
-                <td>{{this.name}}</td>
+                 <td>
+                    <form action="/admin/downloadfile" method="POST">
+                   <button name="matriculation" value={{this.matriculation}}  type="submit">{{this.name}}</button>
+                   </form>
+                </td>
                <td>
                    <form action="/admin/delete" method="POST">
                    <button name="matriculation" value={{this.matriculation}}  type="submit">delete</button>
@@ -81,4 +85,10 @@
 
 </div>
 
+</section>
+
+<section>
+    {{#each outcome}}
+<iframe download style="display: none;" src="../{{this.name}}"></iframe>
+{{/each}}
 </section>

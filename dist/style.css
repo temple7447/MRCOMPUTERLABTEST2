@@ -10,6 +10,7 @@ body{
     width: 100vw;
     height: 100vh;
     background-color: rgb(238, 226, 226);
+    overflow-x: hidden;
 
 }
 .absolue{
@@ -35,4 +36,10 @@ body{
     .phones{
         background-color: hotpink;
     }
+}
+
+.imagestyle{
+    opacity: 80%;
+    
+    
 }

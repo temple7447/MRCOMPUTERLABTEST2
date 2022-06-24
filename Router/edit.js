@@ -79,7 +79,7 @@ router.post('/homepageimage',(req,res)=>{
       })
       NewImage.save({}).then((message)=>{
         console.log(message)
-        res.send('image sucess')
+        res.redirect('edit')
 
       })
       .catch((err)=>{
@@ -171,6 +171,26 @@ router.post('/homeimagedelete',(req,res)=>{
     }).catch((err)=>{
       console.log(err)
     })
+})
+
+router.post('/downloadfile',(req,res)=>{
+  const {matriculation} = req.body;
+  console.log(matriculation)
+  General.findOne({matriculation:matriculation}).then((user)=>{
+    if(!user){
+      console.log('no such name in the database of the school')
+    }else{
+      
+      res.render('admin',{layout: 'admin',outcome:user})
+      
+    }
+    
+  })
+  
+  .catch((err)=>{
+console.log(err)
+  })
+
 })
 
 

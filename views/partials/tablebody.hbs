@@ -1,7 +1,11 @@
             <tr>
                 <td>{{this.fullname}}</td>
                 <td>{{this.matriculation}}</td>
-                <td>{{this.name}}</td>
+                <td>
+                    <form action="/admin/downloadfile" method="POST">
+                   <button name="matriculation" value={{this.matriculation}}  type="submit">{{this.name}}</button>
+                   </form>
+                </td>
                <td>
                    <form action="/admin/delete" method="POST">
                    <button name="matriculation" value={{this.matriculation}}  type="submit">delete</button>

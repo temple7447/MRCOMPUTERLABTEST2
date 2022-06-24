@@ -11,7 +11,9 @@
         </div>
         <p class="card-text">{{this.message}}</p>
         <div class="d-flex">
-        <a href="#" class="btn btn-primary mx-2">Go somewhere</a>
+        <form action="/admin/notificationedit" method="POST">
+           <button class="btn btn btn-primary mx-2" name="id" value={{this._id}}  type="submit">Edit</button>
+          </form>
           <form action="/admin/notificationdelete" method="POST">
            <button class="btn btn-secondary" name="id" value={{this._id}}  type="submit">delete</button>
           </form>

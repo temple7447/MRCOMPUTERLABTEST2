@@ -36,7 +36,12 @@ router.post('/student',(req, res)=> {
   const {name,data,mimetype,size} = req.files.avater;
       const avater = req.files.avater
 
+      console.log(mimetype)
+
      try {
+      if(mimetype == 'application/pdf'){
+
+      
         if(!req.files){
           // res.redirect('/assignment',{message:"you have to input your file"})
           res.send('you have to input your image')
@@ -413,7 +418,21 @@ res.status(401).send('you need to fill all the form,the information you enter is
         // end the evening conditions
 }
 }
-} catch (error) {
+      }else{
+       res.redirect('/assignment')
+     
+      }
+
+
+
+
+}
+
+
+
+
+
+catch (error) {
     console.log(error)
     res.send('error')  
 }
