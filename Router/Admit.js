@@ -15,7 +15,7 @@ MorningHnd2Model.find({},(err,inform)=>{
         console.log(err)
         res.status(500).send("it's a server err" + err)
     }else{
-        res.status(200).render('Admin',{layout:'Admin',list:inform,count:inform,content:"DASHBOARD"})
+        res.status(200).render('Admin1',{layout:'Admin',list:inform,count:inform,content:"DASHBOARD"})
         
 
     }
