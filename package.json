@@ -26,8 +26,7 @@
     "nodemon": "^2.0.16"
   },
   "scripts": {
-    "start": "node index.js",
-    "build": "nodemon index.js"
+    "start": "node index.js"
   },
   "name": "index_side",
   "version": "1.0.0",
