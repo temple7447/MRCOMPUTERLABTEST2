@@ -22,6 +22,8 @@ router.get('/notification',(req,res)=>{
 })
 router.post('/notification',(req,res)=>{
     const {message,morneven,level,time} = req.body
+
+
     
     const User = new Notification({
         message:message,
