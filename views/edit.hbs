@@ -1,14 +1,18 @@
-{{> menu}}
+{{> SideBar}}
 
-<section class="interface w-100  h-100 " style="margin-left: 300px; position:relative">
-    {{> navigation}}
+	<!-- NAVBAR -->
+	<section id="content">
+		<!-- NAVBAR -->
+{{> Nav}}
+		<!-- NAVBAR -->
 
+		
+		<!-- MAIN -->
+		<main>
+	
+		{{> editsubmain}}
 
-
-
-<h1 class="px-2" style="font-weight: 700;margin-top:10%">{{content}}</h1>
-
-    {{!-- EDIT THE HOME PAGE WRITE UP --}}
+         {{!-- EDIT THE HOME PAGE WRITE UP --}}
         <section class="container">
         <div >
             <form class="form form-control my-2" action="/admin/homepagemessage" method="POST">
@@ -56,5 +60,7 @@
     </section>
 
 
-
-</section>
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- NAVBAR -->

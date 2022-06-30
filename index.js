@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express();
 const dotenv = require('dotenv')
-dotenv.config({path:"./.env"})
+dotenv.config({path:"./config.env"})
 const multer  = require('multer')
 const StudentRouter = require('./Router/Student')
 const MainRouter = require('./Router/main')

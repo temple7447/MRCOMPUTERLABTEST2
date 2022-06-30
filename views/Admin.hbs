@@ -1,47 +1,17 @@
-{{> menu}}
+{{> SideBar}}
 
-<section class="interface w-100  h-100 " style="margin-left: 300px; position:relative">
-    {{> navigation}}
+	<!-- NAVBAR -->
+	<section id="content">
+		<!-- NAVBAR -->
+{{> Nav}}
+		<!-- NAVBAR -->
 
+		
+		<!-- MAIN -->
+		<main>
+	
+		{{> submain}}
 
-
-
-<h1 class="px-2" style="font-weight: 700;margin-top:10%">{{content}}</h1>
-{{!-- list of assignment --}}
-<div class="d-flex justify-content-between align-content-center">
-    
-
-    <div class="bg-dark text-light d-flex p-2 m-2" style="width: 220px; height:110px; justify-content: center; align-items:center;">
-        <div style="justify-content: center; align-items:center"><img src="" alt="first"></div>
-        <div class="text-center">
-            <div>8267</div>
-            <div>New Users</div>    
-        </div>
-    </div>
-    <div class="bg-dark text-light d-flex p-2 m-2" style="width: 220px; height:110px; justify-content: center; align-items:center;">
-        <div style="justify-content: center; align-items:center"><img src="" alt="first"></div>
-        <div class="text-center">
-            <div>8267</div>
-            <div>New Users</div>    
-        </div>
-    </div>
-    <div class="bg-dark text-light d-flex p-2 m-2" style="width: 220px; height:110px; justify-content: center; align-items:center;">
-        <div style="justify-content: center; align-items:center"><img src="" alt="first"></div>
-        <div class="text-center">
-            <div>8267</div>
-            <div>New Users</div>    
-        </div>
-    </div>
-    <div class="bg-dark text-light d-flex p-2 m-2" style="width: 220px; height:110px; justify-content: center; align-items:center;">
-        <div style="justify-content: center; align-items:center"><img src="" alt="first"></div>
-        <div class="text-center">
-            <div>8267</div>
-            <div>New Users</div>    
-        </div>
-    </div>
-
-
-</div>
 
 {{!-- list of tables --}}
 <div class="m-3 ">
@@ -87,8 +57,7 @@
 
 </section>
 
-<section>
-    {{#each outcome}}
-<iframe download style="display: none;" src="../{{this.name}}"></iframe>
-{{/each}}
-</section>
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- NAVBAR -->
