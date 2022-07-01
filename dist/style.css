@@ -43,3 +43,13 @@ body{
     
     
 }
+
+li,a{
+    text-decoration: none;
+    list-style: none;
+}
+
+.bi{
+    margin-left:5px;
+    border-radius: 50%;
+}

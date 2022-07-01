@@ -3,6 +3,7 @@ const router = express.Router()
 const mongoose = require("mongoose");
 const fs = require("fs");
 const MorningHnd2Model = require('../Model/MorningHnd2Model');
+const Notification = require('../Model/Notification')
 
 
 const MorningHnd1Models = require('../Model/HND1')
@@ -37,28 +38,36 @@ const Eveningnd1Models = require('../Model/ND11')
 
                                     Eveningnd1Models.count().then((ND1E)=>{
 
+                                        Notification.count().then((notification)=>{
+
+                                            
+MorningHnd2Model.find({},(err,inform)=>{
+
+    if(err){
+        console.log(err)
+        res.status(500).send("it's a server err" + err)
+    }else{
+        res.status(200).render('Admin',{layout:'Admin',list:inform,count:inform,
+    HND2M:HND2M/100,
+HND1M:HND1M/100,
+ND2M:ND2M/100,
+ND1M:ND1M/100,
+HND2E:HND2E/100,
+HND1E:HND1E/100,
+ND2E:ND2E/100,
+ND1E:ND1E/100,
+notification:notification})
+}
+
+})
                         
-                                        MorningHnd2Model.find({},(err,inform)=>{
+                                    
 
-                                            if(err){
-                                                console.log(err)
-                                                res.status(500).send("it's a server err" + err)
-                                            }else{
-                                                res.status(200).render('Admin',{layout:'Admin',list:inform,count:inform,
-                                            HND2M:HND2M/100,
-                                        HND1M:HND1M/100,
-                                    ND2M:ND2M/100,
-                                ND1M:ND1M/100,
-                            HND2E:HND2E/100,
-                        HND1E:HND1E/100,
-                    ND2E:ND2E/100,
-                ND1E:ND1E/100})
-                             }
-                
+
+                        
+                                        }).catch((err)=>{
+                                            console.log(err)
                                         })
-
-
-
                         
                                     }).catch((err)=>{
                                         console.log(err)
@@ -105,3 +114,7 @@ const Eveningnd1Models = require('../Model/ND11')
 
 
 module.exports = router
+
+
+
+
