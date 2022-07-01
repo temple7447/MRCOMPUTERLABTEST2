@@ -26,7 +26,22 @@ const Eveningnd1Models = require('../Model/ND11')
 
 
 
-
+router.post('/studentform',(req,res)=>{
+  const {morneven,level} = req.body;
+  if (morneven == "MORNING" && level == "HND2"){
+    res.send('morning hnd2')
+  }else
+  if (morneven == "MORNING" && level == "HND1"){
+    res.send('morning hnd1')
+  }else
+  if (morneven == "MORNING" && level == "ND2"){
+    res.send('morning nd2')
+  }else
+  if (morneven == "MORNING" && level == "ND1"){
+    res.send('morning nd1')
+  }
+  
+})
 
 
 
@@ -440,6 +455,10 @@ catch (error) {
 
 
 
+
+ router.get('/assignmentform',(req,res)=>{
+  res.send('you are correct')
+})
 
 
 module.exports = router

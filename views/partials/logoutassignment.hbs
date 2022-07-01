@@ -1,0 +1,23 @@
+ <section class="container">
+      <h1 style="font-family:'Times New Roman', Times, serif ; " class="text-center">ASSIGNMENT NOTIFICATION</h1>
+    {{#each list}}
+    <div class="py-3 w-100">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><span class="text-muted">PROGRAM:</span>{{this.morneven}}</h5>
+        <div>
+        <h5 class="card-title"><span  class="text-muted">LEVEL:</span>{{this.level}}</h5>
+        <h5 class="card-title"><span class="text-muted">TIME OF SUBMITION <i class="bi bi-alarm"></i></span>:{{this.time}}</h5>
+        </div>
+        <p class="card-text"><div>
+          ASSIGNMENT INFORMATION:
+        </div>
+        <div>{{this.message}}</div></p>
+         
+          
+      </div>
+    </div>
+  </div>
+{{/each}}
+</section>
