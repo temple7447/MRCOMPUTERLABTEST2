@@ -8,6 +8,7 @@ const MatriculationMorning = require('../Model/MatriculationModelMorning')
 const MatriculationEvening = require('../Model/MatriculationModelEvening')
 const General = require('../Model/MorningHnd2Model')
 const EditImage = require('../Model/Image');
+const Notification = require('../Model/Notification')
 
 const MorningHnd1Models = require('../Model/HND1')
 const MorningHnd2Models = require('../Model/HND2')
@@ -26,19 +27,54 @@ const Eveningnd1Models = require('../Model/ND11')
 
 
 
+
+
+
 router.post('/studentform',(req,res)=>{
   const {morneven,level} = req.body;
   if (morneven == "MORNING" && level == "HND2"){
-    res.send('morning hnd2')
+    Notification.find({morneven:morneven,level:level}).then((notification)=>{
+      if(!notification){
+        res.send('you class dont have any assignment for you know')
+      }else{
+    
+        res.render('hnd2assignment',{layout:'index',list:notification})
+      }
+    })
+
+   
   }else
   if (morneven == "MORNING" && level == "HND1"){
-    res.send('morning hnd1')
+    Notification.find({morneven:morneven,level:level}).then((notification)=>{
+      if(!notification){
+        res.send('you class dont have any assignment for you know')
+      }else{
+    
+        res.render('hnd1assignment',{layout:'index',list:notification})
+      }
+    })
+
   }else
   if (morneven == "MORNING" && level == "ND2"){
-    res.send('morning nd2')
+    Notification.find({morneven:morneven,level:level}).then((notification)=>{
+      if(!notification){
+        res.send('you class dont have any assignment for you know')
+      }else{
+    
+        res.render('nd2assignment',{layout:'index',list:notification})
+      }
+    })
+
   }else
   if (morneven == "MORNING" && level == "ND1"){
-    res.send('morning nd1')
+    Notification.find({morneven:morneven,level:level}).then((notification)=>{
+      if(!notification){
+        res.send('you class dont have any assignment for you know')
+      }else{
+    
+        res.render('nd1assignment',{layout:'index',list:notification})
+      }
+    })
   }
   
 })

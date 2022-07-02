@@ -27,7 +27,6 @@
   },
   "scripts": {
     "start": "node index.js"
-    
   },
   "name": "index_side",
   "version": "1.0.0",

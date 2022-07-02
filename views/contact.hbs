@@ -1,5 +1,61 @@
-<div class="container">
-    <h1>
-        you are in the contact page
-    </h1>
-</div>
+ <section class="container">
+        <div>
+            <form class="form form-control my-4" enctype="multipart/form-data"  action="/student" method="POST">
+            
+                <div>
+                    <label for="name">NAME OF STUDENT</label>
+                    <input type="text" class="form-control" name="fullname"  placeholder="Enter your file name" id="fullname">
+                </div>
+                <div>
+                    <label for="mat">MAT NUMBER</label>
+                    <input type="text" class="form-control mat" name="matriculation"  placeholder="Enter your matriculation number"  id="mat">
+                </div>
+                <div>
+                    <label for="mat">PROGRAM</label>
+                    <select class="form-control morneven" name="morneven" id="cars">
+                        <option value="MORNING">MORNING</option>
+                        <option value="EVENING">EVENING</option>
+                      </select>
+                </div>
+                <div>
+                    <label for="mat">LEVEL</label>
+                    <select class="form-control level" name="level" id="level">
+                        <option value="HND2">HND2</option>
+                        <option value="HND1">HND1</option>
+                        <option value="ND2">ND2</option>
+                        <option value="ND1">ND1</option>
+                      </select>
+                </div>
+                 <div>
+                    <label for="name">COMPLIANCE</label>
+                    <textarea type="text" class="form-control" name="fullname"  placeholder="Enter your file name" id="fullname"></textarea>
+                </div>
+
+              
+                <button type="submit" class="form-control btn-primary btn btns">Click To Submit</button>
+            </form>
+
+
+
+   
+
+           
+
+        </div>
+          {{!-- MATRICULATION NUMBER --}}
+        <section class="container">
+        <div >
+            <form class="form form-control my-4" action="/admin/matriculation" method="POST">
+            
+                <div>
+                    <label for="name">MATRICULATION</label>
+                    <input type="text" class="form-control" name="matriculation1"  placeholder="Enter your file name" id="fullname">
+                </div>
+                <button type="submit" class="form-control btn-primary btn btns">Click To Submit</button>
+            </form>
+        </div>
+    </section>
+
+    
+    </section>
+    

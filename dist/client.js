@@ -2,11 +2,11 @@ const btn = document.querySelector('.btns')
 const fullname = document.querySelector('#fullname');
 const mat = document.querySelector('#mat');
 const file = document.querySelector('#file')
-const morneven = document.querySelector('#morneven')
+const morneven = document.querySelector('#program')
 const level = document.querySelector('#level')
 
 
-// btn.addEventListener('click', async (e)=>{
+// btn.addEventListener('click', (e)=>{
 //     e.preventDefault();
 //     const fullnames = fullname.value
 //     const files = file.value
