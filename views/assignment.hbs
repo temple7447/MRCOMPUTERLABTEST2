@@ -1,24 +1,29 @@
  <section class="container">
+    <div><h1 style="text-align:center ; font-family:Georgia, 'Times New Roman', Times, serif;font-weight:bold">ASSIGNMENT SUBMITTION FORM</h1></div>
         <div>
-            <form class="form form-control my-4" enctype="multipart/form-data"  action="/student" method="POST">
-            
+            <form class="form form-control my-2" enctype="multipart/form-data"  action="/student" method="POST">
+            <div class="message" style="text-align: center;color:#fff; background-color:red ">{{message}}</div>
+            <div class="success" style="text-align: center;color:#fff; background-color:green ">{{success}}</div>
+            <div class="allfield" style="text-align: center;color:#fff; background-color:green ">{{allfield}}</div>
                 <div>
-                    <label for="name">NAME OF STUDENT</label>
+                    <label for="name" style=" font-family:Georgia, 'Times New Roman', Times, serif;font-weight:700; font-size:20px">NAME OF STUDENT</label>
                     <input type="text" class="form-control" name="fullname"  placeholder="Enter your file name" id="fullname">
                 </div>
+                 <div class="matriculation" style="text-align: center;color:#fff; background-color:red ">{{matriculation}}</div>
+           
                 <div>
-                    <label for="mat">MAT NUMBER</label>
+                    <label for="mat" style=" font-family:Georgia, 'Times New Roman', Times, serif;font-weight:700; font-size:20px">MAT NUMBER</label>
                     <input type="text" class="form-control mat" name="matriculation"  placeholder="Enter your matriculation number"  id="mat">
                 </div>
                 <div>
-                    <label for="mat">PROGRAM</label>
+                    <label for="mat" style=" font-family:Georgia, 'Times New Roman', Times, serif;font-weight:700; font-size:20px">PROGRAM</label>
                     <select class="form-control morneven" name="morneven" id="program">
                         <option value="MORNING">MORNING</option>
                         <option value="EVENING">EVENING</option>
                       </select>
                 </div>
                 <div>
-                    <label for="mat">LEVEL</label>
+                    <label for="mat" style=" font-family:Georgia, 'Times New Roman', Times, serif;font-weight:700; font-size:20px">LEVEL</label>
                     <select class="form-control level" name="level" id="level">
                         <option value="HND2">HND2</option>
                         <option value="HND1">HND1</option>
@@ -27,7 +32,7 @@
                       </select>
                 </div>
                 <div class="my-2">
-                    <label for="file">FILE</label>
+                    <label for="file" style=" font-family:Georgia, 'Times New Roman', Times, serif;font-weight:700; font-size:20px">FILE</label>
                     <input type="file" class="form-control file" name="avater"   id="file">
                 </div>
                 <button type="submit" class="form-control btn-primary btn btns">Click To Submit</button>

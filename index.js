@@ -26,6 +26,7 @@ const ClassRouter = require('./Router/Class')
 // const flash = require('connect-flash')
 // const session = require('express-session')
 const UserInfoRouter = require('./Router/userinfo')
+const request = require('request')
 // const Passport = require('./config/LocalPassport')
 
 
@@ -104,7 +105,7 @@ app.use('/Admin',EditRouter)
 app.use('/Admin',ClassRouter)
 app.use('/Admin',UserInfoRouter)
 
-const PORT = process.env.PORT || 4000
+const PORT = process.env.PORT || 3000
 
 app.listen(PORT,()=>{
     console.log(`you are run on port ${PORT}`)

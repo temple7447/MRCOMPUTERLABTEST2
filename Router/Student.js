@@ -25,7 +25,7 @@ const Eveningnd1Models = require('../Model/ND11')
 
 
 
-
+const tileheader = "COMPUTERLAB"
 
 
 
@@ -38,7 +38,7 @@ router.post('/studentform',(req,res)=>{
         res.send('you class dont have any assignment for you know')
       }else{
     
-        res.render('hnd2assignment',{layout:'index',list:notification})
+        res.render('hnd2assignment',{layout:'index',list:notification ,title:tileheader})
       }
     })
 
@@ -50,7 +50,7 @@ router.post('/studentform',(req,res)=>{
         res.send('you class dont have any assignment for you know')
       }else{
     
-        res.render('hnd1assignment',{layout:'index',list:notification})
+        res.render('hnd1assignment',{layout:'index',list:notification ,title:tileheader})
       }
     })
 
@@ -61,7 +61,7 @@ router.post('/studentform',(req,res)=>{
         res.send('you class dont have any assignment for you know')
       }else{
     
-        res.render('nd2assignment',{layout:'index',list:notification})
+        res.render('nd2assignment',{layout:'index',list:notification ,title:tileheader})
       }
     })
 
@@ -72,7 +72,7 @@ router.post('/studentform',(req,res)=>{
         res.send('you class dont have any assignment for you know')
       }else{
     
-        res.render('nd1assignment',{layout:'index',list:notification})
+        res.render('nd1assignment',{layout:'index',list:notification ,title:tileheader})
       }
     })
   }
@@ -86,8 +86,7 @@ router.post('/student',(req, res)=> {
   const {fullname,matriculation,level,morneven} = req.body;
   const {name,data,mimetype,size} = req.files.avater;
       const avater = req.files.avater
-
-      console.log(mimetype)
+      console.log(avater)
 
      try {
       if(mimetype == 'application/pdf'){
@@ -103,15 +102,14 @@ router.post('/student',(req, res)=> {
 
   if(!fullname && !matriculation && !morneven && !level){
     
-res.status(401).send('you need to fill all the form,the information you enter is not completed')
+res.render('assignment',{layout:'index', allfield:"YOU ARE TO FILL ALL FIELD BEFORE YOU CAN SUBMIT"})
 
   }
   else{
     if(morneven == "MORNING"){
       MatriculationMorning.findOne({matriculation:matriculation}).then((user)=>{
         if(!user){
-          console.log('your name is not on the list')
-        res.redirect('/assignment')
+        res.render('assignment',{layout:'index', matriculation:"YOU MATRICULATION NAME IS NOT ON THE LIST"})
         }else{
          if(level == "HND2"){
 // start1
@@ -150,7 +148,7 @@ res.status(401).send('you need to fill all the form,the information you enter is
           User.save().then(()=>{
             console.log('it has be created')
           }).then(()=>{
-            res.redirect('/')
+            res.render('assignment',{layout:'index', success:"IT WAS SUCCESSFULLY SENT"})
           })
           .catch((err)=>{
             console.log(err)
@@ -470,7 +468,7 @@ res.status(401).send('you need to fill all the form,the information you enter is
 }
 }
       }else{
-       res.redirect('/assignment')
+       res.render('assignment',{layout:'index', message:"YOU NEED TO INPUT YOUR FILE TO BE SUBMITTED"})
      
       }
 
