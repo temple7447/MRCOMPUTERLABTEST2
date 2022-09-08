@@ -2,21 +2,6 @@ const mongoose = require('mongoose')
 
  
 const Usershema = new mongoose.Schema({
-    username:{
-        type:String,
-        required:true,
-    },
-    firstname:{
-        type:String,
-        required:true,
-        maxlength:32,
-        trim:true
-    },
-    lastname:{
-        trim:true,
-        maxlength:32,
-        type:String,
-    },
     email:{
         trim:true,
         maxlength:32,
@@ -25,9 +10,6 @@ const Usershema = new mongoose.Schema({
     password1:{
         type:String,
 
-    },
-    password2:{
-      type:String,
     },
     Atcreated:{
         type:Date,
@@ -41,7 +23,7 @@ const Usershema = new mongoose.Schema({
 
 
 
-module.exports = mongoose.model('user', Usershema)
+module.exports = mongoose.model('loginuser', Usershema)
 
 
 

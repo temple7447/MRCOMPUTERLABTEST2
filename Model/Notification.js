@@ -14,6 +14,10 @@ const Notification = new Schema({
        type:String,
         required:true
     },
+    department:{
+        type:String,
+        required:true
+    },
     time:{
         type:Date,
         default:Date.now

@@ -5,6 +5,7 @@ const request = require('request')
 const Notification = require('../Model/Notification')
 const Edit = require('../Model/Edit')
 const EditImage = require('../Model/Image')
+const Email = require('../Model/emailnews')
 
 const APIKEY = "4391f42befbb4afab31db42c05367f1d"
 const APIURL = "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=4391f42befbb4afab31db42c05367f1d"
@@ -66,5 +67,20 @@ router.get('/contact',(req,res)=>{
 //     console.log(search)
 // }))
 
+router.post("/email",(req,res)=>{
+    const {email} = req.body;
+    const Emailnew = new Email({
+        email:email
+    })
+
+    Emailnew.save("")
+    .then(()=>{
+        console.log("we got it thanks")
+        res.redirect('/');
+    }).catch((err)=>{
+        console.log(err)
+    })
+
+})
 
 module.exports = router

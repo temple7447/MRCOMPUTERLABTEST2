@@ -1,22 +1,15 @@
-
-    <!-- show case -->
-    
-    <section class=" mt-1 px-0">
-      {{#each photo}}
-
-
-      {{/each}}
-        <div class="w-100 h-100 family" style="position: absolute ;top:40%;text-align:center">
-        {{#each editlist}}
-        <div style="font-size:40px ;font-weight:700;" class="text-light homemessage ">{{this.homepagemessage}}</div>
-        {{/each}}
-       
-      
-</div>
-</section>
-
-
 {{>mainbody}}
+<div class="bg-dark">
+{{>box}}
+</div>
+{{!-- thirdsection --}}
+<div>
+{{> thirdsectionimage}}
+</div>
+{{> subbody}}
+
+
+<div style="position:absolute; top:90%; left:90%;z-index:100;"><i class="bi bi-arrow-up-circle"></i></div>
 
 
 

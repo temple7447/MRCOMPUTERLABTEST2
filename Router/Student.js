@@ -31,52 +31,237 @@ const tileheader = "COMPUTERLAB"
 
 
 router.post('/studentform',(req,res)=>{
-  const {morneven,level} = req.body;
-  if (morneven == "MORNING" && level == "HND2"){
-    Notification.find({morneven:morneven,level:level}).then((notification)=>{
+  const {morneven,level,department} = req.body;
+  // CIVIL
+  if (morneven == "MORNING" && level == "HND2" && department == "CIVIL"){
+    Notification.find({morneven:morneven,level:level, department:department}).then((notification)=>{
       if(!notification){
         res.send('you class dont have any assignment for you know')
       }else{
     
-        res.render('hnd2assignment',{layout:'index',list:notification ,title:tileheader})
+        res.render('hnd2assignment',{layout:'index',list:notification ,title:tileheader,department:"CIVIL ENGINEERING HND2"})
       }
     })
 
    
   }else
-  if (morneven == "MORNING" && level == "HND1"){
-    Notification.find({morneven:morneven,level:level}).then((notification)=>{
+  if (morneven == "MORNING" && level == "HND1" && department == "CIVIL"){
+    Notification.find({morneven:morneven,level:level, department:department}).then((notification)=>{
       if(!notification){
         res.send('you class dont have any assignment for you know')
       }else{
     
-        res.render('hnd1assignment',{layout:'index',list:notification ,title:tileheader})
+        res.render('hnd1assignment',{layout:'index',list:notification ,title:tileheader,department:"CIVIL ENGINEERING HND1"})
       }
     })
 
   }else
-  if (morneven == "MORNING" && level == "ND2"){
-    Notification.find({morneven:morneven,level:level}).then((notification)=>{
+  if (morneven == "MORNING" && level == "ND2" && department == "CIVIL"){
+    Notification.find({morneven:morneven,level:level, department:department}).then((notification)=>{
       if(!notification){
         res.send('you class dont have any assignment for you know')
       }else{
     
-        res.render('nd2assignment',{layout:'index',list:notification ,title:tileheader})
+        res.render('nd2assignment',{layout:'index',list:notification ,title:tileheader,department:"CIVIL ENGINEERING ND2"})
       }
     })
 
   }else
-  if (morneven == "MORNING" && level == "ND1"){
-    Notification.find({morneven:morneven,level:level}).then((notification)=>{
+  if (morneven == "MORNING" && level == "ND1" && department == "CIVIL"){
+    Notification.find({morneven:morneven,level:level, department:department}).then((notification)=>{
       if(!notification){
         res.send('you class dont have any assignment for you know')
       }else{
     
-        res.render('nd1assignment',{layout:'index',list:notification ,title:tileheader})
+        res.render('nd1assignment',{layout:'index',list:notification ,title:tileheader, department:"CIVIL ENGINEERING ND1"})
+      }
+    })
+  }
+   else
+  // CHEMICAL
+  if (morneven == "MORNING" && level == "HND2" && department == "CHEMICAL"){
+    Notification.find({morneven:morneven,level:level, department:department}).then((notification)=>{
+      if(!notification){
+        res.send('you class dont have any assignment for you know')
+      }else{
+    
+        res.render('hnd2assignment',{layout:'index',list:notification ,title:tileheader,department:"CHEMICAL ENGINEERING HND2"})
+      }
+    })
+
+   
+  }else
+  if (morneven == "MORNING" && level == "HND1" && department == "CHEMICAL"){
+    Notification.find({morneven:morneven,level:level, department:department}).then((notification)=>{
+      if(!notification){
+        res.send('you class dont have any assignment for you know')
+      }else{
+    
+        res.render('hnd1assignment',{layout:'index',list:notification ,title:tileheader,department:"CHEMICAL ENGINEERING HND1"})
+      }
+    })
+
+  }else
+  if (morneven == "MORNING" && level == "ND2" && department == "CHEMICAL"){
+    Notification.find({morneven:morneven,level:level, department:department}).then((notification)=>{
+      if(!notification){
+        res.send('you class dont have any assignment for you know')
+      }else{
+    
+        res.render('nd2assignment',{layout:'index',list:notification ,title:tileheader,department:"CHEMICAL ENGINEERING ND2"})
+      }
+    })
+
+  }else
+  if (morneven == "MORNING" && level == "ND1" && department == "CHEMICAL"){
+    Notification.find({morneven:morneven,level:level, department:department}).then((notification)=>{
+      if(!notification){
+        res.send('you class dont have any assignment for you know')
+      }else{
+    
+        res.render('nd1assignment',{layout:'index',list:notification ,title:tileheader, department:"CHEMICAL ENGINEERING ND1"})
+      }
+    })
+  }
+   else
+  // ELECTRICAL
+  if (morneven == "MORNING" && level == "HND2" && department == "ELECTRICAL"){
+    Notification.find({morneven:morneven,level:level,department:department}).then((notification)=>{
+      if(!notification){
+        res.send('you class dont have any assignment for you know')
+      }else{
+    
+        res.render('hnd2assignment',{layout:'index',list:notification ,title:tileheader,department:"ELECTRICAL ENGINEERING HND2"})
+      }
+    })
+
+   
+  }else
+  if (morneven == "MORNING" && level == "HND1" && department == "ELECTRICAL"){
+    Notification.find({morneven:morneven,level:level, department:department}).then((notification)=>{
+      if(!notification){
+        res.send('you class dont have any assignment for you know')
+      }else{
+    
+        res.render('hnd1assignment',{layout:'index',list:notification ,title:tileheader, department:"ELECTRICAL ENGINEERING HND1"})
+      }
+    })
+
+  }else
+  if (morneven == "MORNING" && level == "ND2" && department == "ELECTRICAL"){
+    Notification.find({morneven:morneven,level:level, department:department}).then((notification)=>{
+      if(!notification){
+        res.send('you class dont have any assignment for you know')
+      }else{
+    
+        res.render('nd2assignment',{layout:'index',list:notification ,title:tileheader,department:"ELECTRICAL ENGINEERING ND2"})
+      }
+    })
+
+  }else
+  if (morneven == "MORNING" && level == "ND1" && department == "ELECTRICAL"){
+    Notification.find({morneven:morneven,level:level, department:department}).then((notification)=>{
+      if(!notification){
+        res.send('you class dont have any assignment for you know')
+      }else{
+    
+        res.render('nd1assignment',{layout:'index',list:notification ,title:tileheader,department:"ELECTRICAL ENGINEERING ND1"})
       }
     })
   }
   
+  // MINIRAL
+  else
+  if (morneven == "MORNING" && level == "HND2" && department == "MINIRAL"){
+    Notification.find({morneven:morneven,level:level,department:department}).then((notification)=>{
+      if(!notification){
+        res.send('you class dont have any assignment for you know')
+      }else{
+    
+        res.render('hnd2assignment',{layout:'index',list:notification ,title:tileheader,department:"MINIRAL ENGINEERING HND2"})
+      }
+    })
+
+   
+  }else
+  if (morneven == "MORNING" && level == "HND1"  && department == "MINIRAL"){
+    Notification.find({morneven:morneven,level:level, department:department}).then((notification)=>{
+      if(!notification){
+        res.send('you class dont have any assignment for you know')
+      }else{
+    
+        res.render('hnd1assignment',{layout:'index',list:notification ,title:tileheader, department:"MINIRAL ENGINEERING HND1"})
+      }
+    })
+
+  }else
+  if (morneven == "MORNING" && level == "ND2"  && department == "MINIRAL"){
+    Notification.find({morneven:morneven,level:level, department:department}).then((notification)=>{
+      if(!notification){
+        res.send('you class dont have any assignment for you know')
+      }else{
+    
+        res.render('nd2assignment',{layout:'index',list:notification ,title:tileheader,department:"MINIRAL ENGINEERING ND2"})
+      }
+    })
+
+  }else
+  if (morneven == "MORNING" && level == "ND1"  && department == "MINIRAL"){
+    Notification.find({morneven:morneven,level:level, department:department}).then((notification)=>{
+      if(!notification){
+        res.send('you class dont have any assignment for you know')
+      }else{
+    
+        res.render('nd1assignment',{layout:'index',list:notification ,title:tileheader,department:"MINIRAL ENGINEERING ND1"})
+      }
+    })
+  }
+  // MECHANICAL
+  else
+  if (morneven == "MORNING" && level == "HND2" && department == "MECHANICAL"){
+    Notification.find({morneven:morneven,level:level, department:department}).then((notification)=>{
+      if(!notification){
+        res.send('you class dont have any assignment for you know')
+      }else{
+    
+        res.render('hnd2assignment',{layout:'index',list:notification ,title:tileheader,department:"MECHANICAL ENGINEERING HND2"})
+      }
+    })
+
+   
+  }else
+  if (morneven == "MORNING" && level == "HND1"  && department == "MECHANICAL"){
+    Notification.find({morneven:morneven,level:level, department:department}).then((notification)=>{
+      if(!notification){
+        res.send('you class dont have any assignment for you know')
+      }else{
+    
+        res.render('hnd1assignment',{layout:'index',list:notification ,title:tileheader,department:"MECHANICAL ENGINEERING HND1"})
+      }
+    })
+
+  }else
+  if (morneven == "MORNING" && level == "ND2"  && department == "MECHANICAL"){
+    Notification.find({morneven:morneven,level:level, department:department}).then((notification)=>{
+      if(!notification){
+        res.send('you class dont have any assignment for you know')
+      }else{
+    
+        res.render('nd2assignment',{layout:'index',list:notification ,title:tileheader,department:"MECHANICAL ENGINEERING ND2"})
+      }
+    })
+
+  }else
+  if (morneven == "MORNING" && level == "ND1"  && department == "MECHANICAL"){
+    Notification.find({morneven:morneven,level:level, department:department}).then((notification)=>{
+      if(!notification){
+        res.send('you class dont have any assignment for you know')
+      }else{
+    
+        res.render('nd1assignment',{layout:'index',list:notification ,title:tileheader,department:"MECHANICAL ENGINEERING ND1"})
+      }
+    })
+  }
 })
 
 

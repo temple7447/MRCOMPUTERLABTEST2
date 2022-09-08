@@ -1,67 +1,52 @@
-const form = document.querySelector('.signup-form')
- const username = document.querySelector('.username')
- const firstname = document.querySelector('.firstname')
- const middlename = document.querySelector('.middlename')
- const lastname = document.querySelector('.last')
- const email = document.querySelector('.email')
- const dob = document.querySelector('.dob')
- const password = document.querySelector('.password')
+    const category = "science"
+    const url =`https://newsapi.org/v2/top-headlines?country=ng&category=${category}&apiKey=4391f42befbb4afab31db42c05367f1d`;
+    
+        fetch(url)
+        .then(res=> res.json() )
+        .then((data)=>{
+            const {articles} = data;
+            console.log(data)
+console.log(articles)
+            
+                // let invalidEntries = 0;
+                // function filterByID(item) {
+                // if (articles.urlToImage != null) {
+                // return true;
+                // }
+                // invalidEntries++;
+                // return false;
+                // }
 
- const form1 = document.querySelector('.loginform')
- const user1 = document.querySelector('.loginuser')
-const password1 = document.querySelector('.loinpassword')
-
-
-
-
-document.querySelector('.btn').addEventListener('click', async (e)=>{
-    e.preventDefault()
-    const pass = password1.value;
-    const use = user1.value;
-    console.log(`${pass} and ${use}`)
-    const result1 = await fetch('/signup',{
-        method:'POST',
-        headers:{
-            'content-Type':'application/json'
-        },
-        body:JSON.stringify({
-            username:user1.value,
-            password:password1.value
+                // const arrByID = articles.filter(filterByID);
+                //     console.log(arrByID)
+                // arrByID.slice(0, 6).forEach((article) => {
+                // console.log(article)
+                // let {urlToImage,title,source,description,url,publishedAt} = article
+                
+                // console.log(urlToImage)
+            //     document.querySelector('.output').innerHTML +=`<div style:"padding-top:20px;"><img style="float:left;width:300px;" src="${urlToImage}"><h1>${title}</h1>${source.name}</br>
+            // ${description} <a href="${url}" target="_blank">${url}</a> </br>${publishedAt}</div>`
+            // });
         })
-    }).then((res)=>{
-        console.log(res)
-    }).catch(err=>console.log(err))
-})
 
 
 
 
 
 
-//  form.addEventListener('submit', async (event)=>{
-//      event.preventDefault()
-//     const result=  await  fetch('/api/register1',{
-//             method:'POST',
-//             headers:{ 
-//                 'content-Type':'application/json'
-//             },
-//             body:JSON.stringify({
-//                  username,
-//                  firstname,
-//                  middlename,
-//                  email,
-//                  dob,
-//                  password
-//             })
-//         }).then(res =>{
-//             res.json()
-//         } )
-//         console.log(result)
-//  })
-
-
-
-
-
-
- 
+        function myFunction() {
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("myUL");
+            li = ul.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {  
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
