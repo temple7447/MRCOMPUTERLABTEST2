@@ -6,7 +6,8 @@ const passport = require('passport')
 const UserInfo = require('../Model/Login')
 
 
-module.exports = (passports)=>{
+const Passports = (passports)=>{
+    
   
         passport.serializeUser((user,done)=>{
             done(null,user.id)
@@ -21,6 +22,9 @@ module.exports = (passports)=>{
 
 
 }
+
+
+module.exports = { Passports }
 
 
 

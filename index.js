@@ -30,11 +30,13 @@ const ClassRouter = require('./Router/Class');
 const  localStrategy = require('passport-local').Strategy
 const bcrypt = require('bcrypt')
 // const flash = require('connect-flash')
+const flash = require('flash');
 const session = require('express-session');
 const request = require('request');
 const fetch = require('node-fetch');
 // const Passport = require('./config/LocalPassport')
 const registerModels = require("./Model/register");
+const {isLoggingIn} = require('./config/auth')
 
 
 connection.connect((err)=>{
@@ -65,7 +67,7 @@ connection.connect((err)=>{
 }));
 
 const bodyParser = require("body-parser");
-const flash = require('flash');
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -104,8 +106,6 @@ app.use(fileUpload({
     createParentPath: true
 }));
 
-// bodyparser middleware
-// app.use(bodyparser.urlencoded({ extended:true }))
 // express middleware
 app.use(express.json())
 
@@ -119,11 +119,7 @@ passport.deserializeUser(( id,done)=>{
 
 })
 
-passport.use(new localStrategy({
-    usernameField:'email',
-    passwordField: 'password1'
-},
-(email,password1,done)=>{
+passport.use(new localStrategy( (email,password1,done)=>{
     registerModels.findOne({email:email})
     .then((user)=>{
         if(!user){
@@ -144,35 +140,6 @@ passport.use(new localStrategy({
 )
 
 
-function isLoggingIn(req,res,next){
-    if(req.isAuthenticated()) return next();
-    
-        res.redirect('/registerlogin/stafflogin');
-}
-
-
-
-app.get('/setup', async (req,res)=>{
-    const exists = await registerModels.exists({email:"starukido"})
-    if(exists){
-        console.log('exists')
-        res.redirect('/registerlogin/stafflogin');
-        return;
-    } 
-    bcrypt.genSalt(10,(err,salt)=>{
-        if(err) return next(err);
-        bcrypt.hash("mypassword", salt, (err,hash)=>{
-            if(err) return next(err);
-            const newAdmin = new registerModels({
-                email:"admin",
-                password1:hash
-            });
-
-            newAdmin.save({});
-            res.redirect('/registerlogin/stafflogin')
-        })
-    })
-})
 
 
 
@@ -185,15 +152,15 @@ app.set('view engine', '.hbs')
 
 // extenal routers
 app.use('/',StudentRouter)
-app.use('/registerlogin',StaffRouter)
+app.use('/department',StaffRouter)
 app.use('/',MainRouter)
 app.use('/',DepartmentRouter)
-app.use('/api',isLoggingIn,NewsRouter)
-app.use('/Admin', isLoggingIn ,AdminRouter)
-app.use('/Admin',isLoggingIn,searchRouter)
-app.use('/Admin',isLoggingIn,NotificationRouter)
-app.use('/Admin',isLoggingIn,EditRouter)
-app.use('/Admin',isLoggingIn,ClassRouter)
+app.use('/api',NewsRouter)
+app.use('/Admin' ,AdminRouter)
+app.use('/Admin',searchRouter)
+app.use('/Admin',NotificationRouter)
+app.use('/Admin',EditRouter)
+app.use('/Admin',ClassRouter)
 
 const PORT = process.env.PORT
 

@@ -1,18 +1,11 @@
 const express = require('express')
 const router = express.Router()
 const mongoose = require("mongoose");
-const Registershema = require("../Model/register")
+const staffUser = require("../Model/register")
 const  localStrategy = require('passport-local').Strategy
 const bcrypt = require('bcrypt')
 const passport = require('passport')
-
-
-function isLoggingout(req,res,next){
-  if(!req.isAuthenticated()) return next();
-  
-      res.redirect('/admin');
-}
-
+const {isLoggingout } = require('../config/auth')
 
 
 router.get('/stafflogin',isLoggingout,((req,res)=>{
@@ -29,14 +22,14 @@ router.get('/staffregister',((req,res)=>{
 
 
 
-router.post('/login',((req,res)=>{
-  const {email, password1} = req.body
-    if(!email || !password1){
-        res.redirect('/admin/login')
+router.post('/stafflogin',((req,res)=>{
+  const {email, password2} = req.body
+    if(!email || !password2){
+        res.redirect('/department/stafflogin');
     }else{
-      Registershema.findOne({email:email,password1:password1}).then((user)=>{
+      staffUser.find({email:email,password2:password2}).then((user)=>{
             if(!user){
-                res.redirect('/admin/login')
+                res.redirect('/department/stafflogin')
             }
             else{
                 res.redirect('/admin')
@@ -49,12 +42,15 @@ router.post('/login',((req,res)=>{
 
 
 
-router.post('/register',((req,res)=>{
 
-  const {username, firstname, lastname, email, password1, password2,validation } = req.body
+
+
+router.post('/staffregister',((req,res)=>{
+
+  const {username, firstname, lastname, email, password1, password2,department } = req.body
   let errors =[]
 
-  if(!username || !firstname || !lastname || !email || !password1 || !password2 || !validation){
+  if(!username || !firstname || !lastname || !email || !password1 || !password2 || !department){
       errors.push({msg: 'please fill all the fields'})
 
   }
@@ -73,49 +69,46 @@ router.post('/register',((req,res)=>{
       })  
   }
   else{
-    Registershema.findOne({email:email}).then(user=>{
+    staffUser.findOne({email:email}).then(user=>{
           if(user){
               res.render('register',{ layout:'register',username,firstname,
-              lastname,email,validation})
+              lastname,email,department})
 
           }
           else{
               
-            const newUser = new Registershema({
+            const newUser = new staffUser({
               username,
               firstname,
               lastname,
               email,
+              department,
               password1,
-              password2
+              password2,
+              
           })
           newUser.save({}).then((resp)=>{
-            res.redirect('/admin/login')
+            res.redirect('/department/stafflogin')
         })
         .catch((error)=>{
             console.log(error)
         })
 
-             
-          
-          // Userdb.create({}).then(respose=>{console.log(respose) }).catch(err=>{console.error(err)})
-          //   bcrypt.genSalt(10, (err,salt)=>{bcrypt.hash(newUser.password1, salt , (err,hash)=>{
-          //       if(err) throw err;
 
+        bcrypt.genSalt(10, (err,salt)=>{bcrypt.hash(newUser.password1, salt , (err,hash)=>{
+        if(err) throw err;
+                newUser.password1 = hash;
+                newUser.save({})
+                .then(user=>{
+                    //  req.flash('success_msg', 'You are now Registered and can log in ')
+                     res.redirect('department/stafflogin')
+                  })
+                .catch(err=> console.log(err))
+            })
 
-          //     //   newUser.password1 = hash;
-          //     //   newUser.save().then(user=>{
-          //     //        req.flash('success_msg', 'You are now Registered and can log in ')
-          //     //        res.redirect('/users/login')
-          //     //     })
-          //     //   .catch(err=> console.log(err))
-          //   })
-
-          //   })
+            })
           }
       })
-
-
   }
 
 }))

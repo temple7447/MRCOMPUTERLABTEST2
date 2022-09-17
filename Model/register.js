@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
  
-const Registershema = new mongoose.Schema({
+const staffUser = new mongoose.Schema({
     username:{
         type:String,
         required:true,
@@ -22,18 +22,20 @@ const Registershema = new mongoose.Schema({
         maxlength:32,
         type:String,
     },
+    
+    department:{
+        trim:true,
+        maxlength:32,
+        type:String,
+    },
     password1:{
         type:String,
 
     },
-    // department:{
-    //     trim:true,
-    //     maxlength:32,
-    //     type:String,
-    // },
     password2:{
       type:String,
     },
+
     Atcreated:{
         type:Date,
         default:Date.now
@@ -46,7 +48,7 @@ const Registershema = new mongoose.Schema({
 
 
 
-module.exports = mongoose.model('Registershema', Registershema)
+module.exports = mongoose.model('Register', staffUser)
 
 
 
