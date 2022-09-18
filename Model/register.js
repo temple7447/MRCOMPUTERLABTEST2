@@ -50,26 +50,3 @@ const staffUser = new mongoose.Schema({
 
 module.exports = mongoose.model('Register', staffUser)
 
-
-
-    // email:{
-    //     type:String,
-    //     trim:true,
-    //     maxlength:32,
-    //     unique: true,
-    // },
-    // encrypassword:{
-    //      type:String,
-    //      required:true
-    // },
-//     salt:String,
-// }, {timestamps:true})
-
-
-// usershema.virtual('password').set(()=>{ }).get(()=>{ })
-
-// usershema.methods = {
-//     authenticate: (plainpassword)=> {
-//         return this.securepassword(plainpassword) === this.encrypassword 
-//     }
-// }

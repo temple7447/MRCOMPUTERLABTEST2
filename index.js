@@ -69,7 +69,7 @@ connection.connect((err)=>{
 const bodyParser = require("body-parser");
 
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 
 // mongoose database
 connectDB()
@@ -122,26 +122,23 @@ passport.deserializeUser(( id,done)=>{
 passport.use(new localStrategy( (email,password1,done)=>{
     registerModels.findOne({email:email})
     .then((user)=>{
+        console.log(user)
         if(!user){
             return done(null,false, {message : "that email is not register "})
         }
-        bcrypt.compare(password1,user.password1,(err,ismatch)=>{
-            if(err) return done(err);
-
-            if(ismatch){
-                return done(null,user)
-            }else{
-                return done(null,false,{message: 'the password is not correct'});
-            }
-        })
+        
+        return done(null,user)
+        // bcrypt.compare(password1,user.password1,(err,ismatch)=>{
+            // if(err) return done(err);
+            // if(ismatch){
+            //     return done(null,user)
+            // }else{
+            //     return done(null,false,{message: 'the password is not correct'});
+            // }
+        // })
     })
     .catch(err=>console.log(err))
-})
-)
-
-
-
-
+}))
 
 // express handlebars middleware
 app.engine('.hbs', hbs({

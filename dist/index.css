@@ -115,6 +115,27 @@
   background-color: #4070F4;
 }
 
+.iconstyle:hover{
+  background-color: green !important;
+  transform: scale(1.3);
+  cursor: pointer;
+}
+.nav-header:hover{
+  color: white !important;
+  background-color: #707070;
+  transform:scale(1.1);
+  display: block;
+}
+.department:hover{
+  display: block !important;
+
+}
+.subnav-header:hover{
+  color: white !important;
+  background-color: #707070;
+  transform:scale(1.3);
+}
+
 @media screen and (max-width: 768px) {
   .slide-content{
     margin: 0 10px;

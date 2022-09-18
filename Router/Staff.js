@@ -22,23 +22,11 @@ router.get('/staffregister',((req,res)=>{
 
 
 
-router.post('/stafflogin',((req,res)=>{
-  const {email, password2} = req.body
-    if(!email || !password2){
-        res.redirect('/department/stafflogin');
-    }else{
-      staffUser.find({email:email,password2:password2}).then((user)=>{
-            if(!user){
-                res.redirect('/department/stafflogin')
-            }
-            else{
-                res.redirect('/admin')
-            }
-        })
-    }
 
-})
-)
+router.post('/stafflogin',passport.authenticate('local', { failureRedirect: '/department/stafflogin' }),
+  (req, res) =>{
+    res.redirect('/admin');
+  });
 
 
 
@@ -85,6 +73,7 @@ router.post('/staffregister',((req,res)=>{
               department,
               password1,
               password2,
+              department
               
           })
           newUser.save({}).then((resp)=>{
@@ -94,19 +83,17 @@ router.post('/staffregister',((req,res)=>{
             console.log(error)
         })
 
-
-        bcrypt.genSalt(10, (err,salt)=>{bcrypt.hash(newUser.password1, salt , (err,hash)=>{
-        if(err) throw err;
-                newUser.password1 = hash;
-                newUser.save({})
-                .then(user=>{
-                    //  req.flash('success_msg', 'You are now Registered and can log in ')
-                     res.redirect('department/stafflogin')
-                  })
-                .catch(err=> console.log(err))
-            })
-
-            })
+        // bcrypt.genSalt(10, (err,salt)=>{bcrypt.hash(newUser.password1, salt , (err,hash)=>{
+        // if(err) throw err;
+                // newUser.password1 = hash;
+                // newUser.save({})
+                // .then(user=>{
+                //     //  req.flash('success_msg', 'You are now Registered and can log in ')
+                //      res.redirect('department/stafflogin')
+                //   })
+                // .catch(err=> console.log(err))
+            // })
+            // })
           }
       })
   }
