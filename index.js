@@ -17,7 +17,6 @@ const path = require('path')
 const fs = require("fs");
 const connectDB = require('./config/db')
 const passport = require('passport');
-const mysql = require('mysql');
 const connection = require('./config/sql');
 const searchRouter = require('./Router/search');
 const NotificationRouter = require('./Router/notification');
@@ -37,16 +36,6 @@ const fetch = require('node-fetch');
 // const Passport = require('./config/LocalPassport')
 const registerModels = require("./Model/register");
 const {isLoggingIn} = require('./config/auth')
-
-
-connection.connect((err)=>{
-    console.log('you are connected')
-    connection.query("create database mysql",(err,result)=>{
-        console.log('database was created')
-    })
-  })
-
-
 
 
 

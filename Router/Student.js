@@ -674,10 +674,4 @@ catch (error) {
 
 
 
-
- router.get('/assignmentform',(req,res)=>{
-  res.send('you are correct')
-})
-
-
 module.exports = router
