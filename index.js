@@ -49,14 +49,6 @@ const {isLoggingIn} = require('./config/auth')
 //     next()
 // })
 
-  app.use(session({
-    secret:'temple',
-    resave:false,
-    saveUninitialized:true,
-}));
-
-const bodyParser = require("body-parser");
-
 
 app.use(express.urlencoded({ extended: true }));
 
